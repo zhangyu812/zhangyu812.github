@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    svg{
+      width:500px;
+      height:500px;
+      fill:aquamarine;
+      stroke:blue;
+      stroke-width: 2px;
+    }
+  </style>
+</head>
+<body>
+<svg id="demo">
+  <path d="M 100 100 L 300 100 L 300 300 L 100 300 Z"></path>
+</svg>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+  const svg = d3.select("#demo");
+  const circle=svg.append("circle")
+          .attr("r",5)
+          .attr("cx",100)
+          .attr("cy",100)
+          .attr("fill","red")
+          .attr("stroke","black");
+
+  const x=t=>150+150*Math.random();
+  const y=t=>150+150*Math.random();
+
+  let t=0;
+  setInterval(function() {
+    t += 0.0;
+    circle
+            .attr("cx", x(t))
+            .attr("cy", y(t));
+  }, 100);
+</script>
+</body>
+</html>
